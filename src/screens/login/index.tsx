@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { Card } from '../../components/card';
 
@@ -11,8 +11,16 @@ export default function LoginScreen() {
                 <Text className='text-lg text-black'>Bem vindo</Text>
             </View>
             <Card className='w-full p-6'>
-                <Text> olar</Text>
-                <TextInput placeholder='useless'/>
+                <View className='w-full gap-y-1 mb-7'>
+                    <Text>E-Mail</Text>
+                    <TextInput defaultValue='Inner shadow não ta funcionando socorro' className='w-full p-2 bg-grayFaint rounded-lg' autoComplete='email' />
+                    <Text>Senha</Text>
+                    <TextInput defaultValue='teste' className='w-full p-2 bg-grayFaint rounded-lg' secureTextEntry/>
+                </View>
+                <Button title='Entrar' onPress={() => {
+
+                    }
+                }/>
             </Card>
         </View>
     );
