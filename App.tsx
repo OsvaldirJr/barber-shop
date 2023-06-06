@@ -1,7 +1,11 @@
-import LoginScreen from "./src/screens/login";
+import { Provider } from "react-redux";
+import { store } from './src/stores/ducks/index';
+import StackNavigator from "./src/configs/routes";
 
 export default function App() {
   return (
-    <LoginScreen />    
+    <Provider store={store}>
+      <StackNavigator />
+    </Provider>
   );
 }
