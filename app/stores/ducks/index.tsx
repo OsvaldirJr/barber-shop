@@ -6,12 +6,12 @@ interface UserData {
 };
 
 const initialState: UserData = {
-  userEmail: 'Nada digitado',
+  userEmail: '',
   counterValue: 0,
 };
 
 const userDataSlice = createSlice({
-  name: 'user',
+  name: 'userActions',
   initialState,
   reducers: {
     setEmail: (state, action: PayloadAction<string>) => {

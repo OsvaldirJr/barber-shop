@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
-import { store } from './src/stores/ducks/index';
-import StackNavigator from "./src/configs/routes";
+import { store } from './app/stores/ducks/index';
+import StackNavigator from "./app/configs/routes";
 
 export default function App() {
   return (
