@@ -1,22 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, Alert, TouchableHighlight } from 'react-native';
 import CheckBox from 'expo-checkbox';
 import { Feather } from '@expo/vector-icons';
 import { Card } from '../../../shared/components/card';
-import { setEmail } from '../../../stores/ducks';
-import { useDispatch } from 'react-redux';
 import CustomButton from '../../../shared/components/custom-button';
 import CustomTextInput from '../../../shared/components/custom-text-input';
+import { AuthContext } from '../../../contexts/auth';
 
 
-export default function LoginScreen({ navigation }) {
-    const [emailField, setEmailField] = useState('');
-    const [passwordField, setPasswordField] = useState('');
+export default function LoginScreen({ }) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [keepLoggedCheckbox, setKeepLoggedCheckbox] = useState(false);
-    const dispatch = useDispatch();
+    const { signIn } = useContext<any>(AuthContext);
 
     function loginHandler() {
-        dispatch(setEmail(emailField))
+        signIn(email, password)
     };
 
     return (
@@ -32,7 +31,7 @@ export default function LoginScreen({ navigation }) {
                         placeholder='Favor digitar e-mail brou'
                         autoComplete='email'
                         onChangeText={(newValue: string) => {
-                            setEmailField(newValue)
+                            setEmail(newValue)
                         }}
                     />
                     <View className='w-full justify-between flex-row mb-1'>
@@ -49,7 +48,7 @@ export default function LoginScreen({ navigation }) {
                         placeholder='Digite sua senha'
                         secureTextEntry
                         onChangeText={(newValue: string) => {
-                            setPasswordField(newValue)
+                            setPassword(newValue)
                         }}
                     />
                     <View className='flex-row items-center gap-x-2'>
@@ -64,13 +63,12 @@ export default function LoginScreen({ navigation }) {
                 </View>
                 <CustomButton
                     onPress={() => {
-                        if (emailField === '') {
+                        if (email === '') {
                             Alert.alert('Erro de autenticação', 'Favor informar o E-mail')
-                        } else if (passwordField === '') {
+                        } else if (password === '') {
                             Alert.alert('Erro de autenticação', 'Favor informar a senha')
                         } else {
                             loginHandler()
-                            navigation.navigate('App')
                         }
                     }}
                     variant='primary'

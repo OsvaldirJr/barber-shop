@@ -1,11 +1,13 @@
-import { Provider } from "react-redux";
-import { store } from './app/stores/ducks/index';
 import StackNavigator from "./app/configs/routes";
+import AuthProvider from "./app/contexts/auth";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <StackNavigator />
-    </Provider>
+    <NavigationContainer>
+      <AuthProvider>
+          <StackNavigator />
+      </AuthProvider>
+    </NavigationContainer>
   );
 }

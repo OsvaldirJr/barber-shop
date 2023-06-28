@@ -14,7 +14,7 @@ export default function TabNavigator() {
                 tabBarIcon: ({ color, size }) => {
                     let iconName: any;
 
-                    if (route.name === 'Home') {
+                    if (route.name === 'Dash') {
                         iconName = 'home';
 
                     } else if (route.name === 'Payments') {
@@ -33,7 +33,7 @@ export default function TabNavigator() {
             })}
 
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{ headerTintColor: '#F0F0F0', headerStyle: ({ backgroundColor: '#000100' }) }} />
+            <Tab.Screen name="Dash" component={HomeScreen} options={{ headerTintColor: '#F0F0F0', headerStyle: ({ backgroundColor: '#000100' }) }} />
             <Tab.Screen name="Payments" component={PaymentsScreen} options={{ headerTintColor: '#F0F0F0', headerStyle: ({ backgroundColor: '#000100' }) }} />
             <Tab.Screen name="History" component={HistoryScreen} options={{ headerTintColor: '#F0F0F0', headerStyle: ({ backgroundColor: '#000100' }) }} />
             <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerTintColor: '#F0F0F0', headerStyle: ({ backgroundColor: '#000100' }) }} />
