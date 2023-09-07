@@ -4,6 +4,7 @@ export default function CustomTextInput(props: any) {
     return (
         <View className='rounded-lg overflow-hidden'>
             <TextInput
+                value={props.value}
                 placeholder={props.placeholder}
                 className='w-full p-2 rounded-lg overflow-hidden'
                 style={styles.inputBoxShadows}
